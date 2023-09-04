@@ -7,3 +7,9 @@ export const GetPersonajes = async()=>{
     const response = await instance.get(url);
     return response.data.results;
 }
+export const GetPersonajeId = async(id)=>{
+    const url=`/character/${id}`
+    const response = await instance.get(url);
+    console.log(response)
+    return response.data;
+}

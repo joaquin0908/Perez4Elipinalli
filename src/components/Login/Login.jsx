@@ -1,26 +1,46 @@
-import React,{ useEffect, useState} from 'react'
-import { GetPersonajes } from '../../api'
+import "./Login.css"
+import React from 'react'
+import { useState } from 'react'
+import { useNavigate } from "react-router-dom"
+
+
 
 
 export default function Login() {
-   
-    const [Personajes, setPersonajes] = useState([])
-    useEffect(() => {
-        const fetchData = async () => {
-          try {
-            const data = await GetPersonajes();
-            /* console.log(data) */
-            setPersonajes(data);
-          } catch (error) {
-            console.error('Error al obtener los personajes', error);
-          }
-        };
+  const [nombre, setNombre] = useState ("")
+  const [contraseña, setContraseña] = useState ("")
+  const [error, setError] = useState(false)  
+  const navigate = useNavigate()
+  
+ const handleSubmit = (e) =>{
+    e.preventDefault()
+    if(nombre === "" || contraseña === ""){
+       setError(!error)
+       return
+    }
+   navigate("/") 
+ }
+ console.log(nombre, contraseña)
+ return (
+     <section>
+        <h1>Login</h1>
+        <form 
+        className="Login"
+        onSubmit={handleSubmit}
+        >
+     <input 
+     type="text"
+     value={nombre}
+     onChange={e => setNombre(e.target.value)}
+     />
+     <input type="password" 
+     value={contraseña}
+     onChange={e => setContraseña(e.target.value)}
+     />
+     <button> Inciar sesion</button>
+     </form>
+     {error && <p>Todos los campos son obligatorios</p>}
+    </section>
     
-        fetchData();
-        
-      }, []);
-      console.log("aca vemos los pj",Personajes)
-  return (
-    <div>Login</div>
-  )
+    )
 }

@@ -18,9 +18,9 @@ export default function PersonajesContainer() {
         };
     
         fetchData();
-        
+        //[] se va a renderizar una sola vez 
       }, []);
-      console.log("aca vemos los pj",Personajes)
+     
   return (
     <div>
         {Personajes.map((Personajes)=>(<Tarjetas key={Personajes.id} Data={Personajes} />))}
