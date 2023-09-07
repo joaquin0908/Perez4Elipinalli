@@ -8,7 +8,7 @@ export const Personaje = () => {
   const {id} = useParams()
   const [Personaje, setPersonaje] = useState({})
 
-  useEffect(() => {
+  
     const fetchData = async () => {
       try {
         const data = await GetPersonajeId(id);
@@ -18,7 +18,7 @@ export const Personaje = () => {
         console.error('Error al obtener los personajes', error);
       }
     };
-
+    useEffect(() => {
     fetchData();
     //[var] se renderiza cuando la variable cambie 
   }, [id]);

@@ -20,7 +20,7 @@ export default function Login() {
     }
    navigate("/") 
  }
- console.log(nombre, contraseña)
+
  return (
      <section>
         <h1>Login</h1>
