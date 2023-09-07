@@ -9,7 +9,7 @@ export default function NavBar() {
         <div className='logoNavBar'>  <img src={Logo} ></img> </div>
         <div className='botonesNavBar'>
             <NavLink to="/" className='botonNavBar'>Personajes</NavLink>
-            <NavLink to="/location" className='botonNavBar'>LOCALIDADES</NavLink>
+            <NavLink to="/Localidades" className='botonNavBar'>Localidades</NavLink>
             <NavLink to="/Login" className='botonNavBar'>Login</NavLink>
         </div>
     </div>
