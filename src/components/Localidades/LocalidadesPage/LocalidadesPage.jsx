@@ -2,8 +2,10 @@ import React from 'react'
 
 export const LocalidadesPage = ({data})=> {
   return (
-    <div>LocalidadesContainer
+    <div>
      <p>{data.name}</p>
+     <p>{data.type}</p>
+     <p>{data.dimension}</p>
     </div>
   )
 }

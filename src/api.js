@@ -16,6 +16,6 @@ export const GetPersonajeId = async(id)=>{
 export const GetLocalidades = async()=>{
     const url = `/location`
     const response = await instance.get(url);
-    return response;
+    return response.data.results;
 }
 

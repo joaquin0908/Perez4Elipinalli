@@ -1,5 +1,6 @@
 import React, { useEffect, useState }from 'react'
 import { GetLocalidades } from '../../api'
+import { LocalidadesPage } from './LocalidadesPage/LocalidadesPage';
 
 
 export const Localidades = ()=> {
@@ -9,8 +10,9 @@ export const Localidades = ()=> {
   const fetchData = async () => {
     try {
       const data = await GetLocalidades();
-      
-      
+      setLocalidad(data) 
+     
+    
     } catch (error) {
       console.error('Error al obtener las localidades', error);
     }
@@ -18,10 +20,10 @@ export const Localidades = ()=> {
   fetchData();
   //[var] se renderiza cuando la variable cambie 
 }, []);
-console.log(data)
+console.log("localidades", Localidad)  
     return (
       <div>
-        localidad
+        {Localidad.map((Localidad)=>(<LocalidadesPage key={Localidad.name} data={Localidad} />))}
         </div>
        //aca vamos a crear las tarjetas, con la cantidad de pj que tengamos
     );
