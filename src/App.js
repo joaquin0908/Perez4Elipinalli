@@ -9,15 +9,22 @@ import { Localidades } from './components/Localidades/Localidades';
 function App() {
   return (
     <div className="App">
-      <NavBar/>
-      <Routes>
-        <Route element={<PersonajesContainer/>} path='/'></Route>
-        <Route element={<Login/>} path='/Login'> </Route>
-        <Route element={<Personaje/>} path="/:id"/>
-        <Route element={<Localidades/>} path='/Localidades'></Route>
-      </Routes>
-
-    </div>
+    {/* Este es el contenedor principal de la aplicación */}
+    <NavBar />
+    {/* La barra de navegación de la aplicación */}
+    <Routes>
+      {/* Aquí definimos las rutas y sus componentes asociados */}
+      <Route element={<PersonajesContainer />} path='/'></Route>
+      {/* Ruta para mostrar la lista de personajes */}
+      <Route element={<Login />} path='/Login'> </Route>
+      {/* Ruta para la página de inicio de sesión */}
+      <Route element={<Personaje />} path="/:id"/>
+      {/* Ruta para mostrar detalles de un personaje específico */}
+      <Route element={<Localidades />} path='/Localidades'></Route>
+      {/* Ruta para mostrar la lista de localidades */}
+    </Routes>
+  </div>
+  
   );
 }
 

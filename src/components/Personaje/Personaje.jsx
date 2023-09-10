@@ -1,36 +1,36 @@
-import {useState, useEffect} from 'react'
-import { useParams, Link } from 'react-router-dom'
-import { GetPersonajeId } from '../../api'
+import { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { GetPersonajeId } from '../../api';
 
-
-
+// Componente para mostrar detalles de un personaje
 export const Personaje = () => {
-  const {id} = useParams()
-  const [Personaje, setPersonaje] = useState({})
+  const { id } = useParams(); // Obtener el parámetro de ruta ":id"
+  const [Personaje, setPersonaje] = useState({}); // Estado para almacenar los detalles del personaje
 
-  
-    const fetchData = async () => {
-      try {
-        const data = await GetPersonajeId(id);
-        /* console.log(data) */
-        setPersonaje(data)
-      } catch (error) {
-        console.error('Error al obtener los personajes', error);
-      }
-    };
-    useEffect(() => {
+  // Función para obtener los detalles del personaje
+  const fetchData = async () => {
+    try {
+      const data = await GetPersonajeId(id);
+      setPersonaje(data);
+    } catch (error) {
+      console.error('Error al obtener los personajes', error);
+    }
+  };
+
+  // Llamar a fetchData al montar el componente y cuando el ID cambie
+  useEffect(() => {
     fetchData();
-    //[var] se renderiza cuando la variable cambie 
   }, [id]);
 
-    return (
+  return (
     <div>
-        <Link to={"/"}> Volver </Link>
-        <img src={Personaje.image} alt=""></img>
-        <p>{Personaje.name}</p>
-        <p>{Personaje.status}</p>
-        <p>{Personaje.species}</p>
-
+      {/* Mostrar detalles del personaje */}
+      <img src={Personaje.image} alt=""></img>
+      <p>{Personaje.name}</p>
+      <p>{Personaje.status}</p>
+      <p>{Personaje.species}</p>
+      {/* Enlace para volver a la página principal */}
+      <Link to={"/"}> Volver </Link>
     </div>
-  )
+  );
 }

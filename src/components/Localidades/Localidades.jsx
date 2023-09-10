@@ -1,30 +1,36 @@
-import React, { useEffect, useState }from 'react'
-import { GetLocalidades } from '../../api'
+import React, { useEffect, useState } from 'react';
+import { GetLocalidades } from '../../api';
 import { LocalidadesPage } from './LocalidadesPage/LocalidadesPage';
 
-
-export const Localidades = ()=> {
- 
+// Componente que muestra una lista de localidades
+export const Localidades = () => {
+  // Estado para almacenar la lista de localidades
   const [Localidad, setLocalidad] = useState([]);
+
   useEffect(() => {
-  const fetchData = async () => {
-    try {
-      const data = await GetLocalidades();
-      setLocalidad(data) 
-     
-    
-    } catch (error) {
-      console.error('Error al obtener las localidades', error);
-    }
-  };
-  fetchData();
-  //[var] se renderiza cuando la variable cambie 
-}, []);
-console.log("localidades", Localidad)  
-    return (
-      <div>
-        {Localidad.map((Localidad)=>(<LocalidadesPage key={Localidad.name} data={Localidad} />))}
-        </div>
-       //aca vamos a crear las tarjetas, con la cantidad de pj que tengamos
-    );
+    // Función para obtener datos de las localidades
+    const fetchData = async () => {
+      try {
+        const data = await GetLocalidades();
+        setLocalidad(data);
+      } catch (error) {
+        console.error('Error al obtener las localidades', error);
+      }
+    };
+
+    // Llamar a la función fetchData una vez al montar el componente ([] como dependencia)
+    fetchData();
+  }, []);
+
+  console.log("localidades", Localidad);
+
+  return (
+    <div>
+      {/* Mapear la lista de localidades y renderizar cada una */}
+      {Localidad.map((Localidad) => (
+        <LocalidadesPage key={Localidad.name} data={Localidad} />
+      ))}
+    </div>
+   
+  );
 }
