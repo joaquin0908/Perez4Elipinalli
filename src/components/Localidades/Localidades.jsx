@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { GetLocalidades } from '../../api';
 import { LocalidadesPage } from './LocalidadesPage/LocalidadesPage';
+import  "./Localidades.css"
 
 // Componente que muestra una lista de localidades
 export const Localidades = () => {
@@ -27,9 +28,9 @@ export const Localidades = () => {
   return (
     <div>
       {/* Mapear la lista de localidades y renderizar cada una */}
-      {Localidad.map((Localidad) => (
-        <LocalidadesPage key={Localidad.name} data={Localidad} />
-      ))}
+      {Localidad.map((Localidad) => (<LocalidadesPage key={Localidad.name} data={Localidad} />))}
+      <p>{Localidad.type}</p>
+      <p>{Localidad.dimension}</p>
     </div>
    
   );

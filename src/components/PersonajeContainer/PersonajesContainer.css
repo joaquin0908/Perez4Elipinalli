@@ -1,0 +1,7 @@
+.Contenedor{
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 0 auto;
+}

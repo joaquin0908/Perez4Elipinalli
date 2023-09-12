@@ -6,7 +6,7 @@ import Logo from "../../assets/logo.jpg"
 export default function NavBar() {
   return (
     <div className='navBar'>
-        <div className='logoNavBar'>  <img src={Logo} ></img> </div>
+        <div className='logoNavBar'>  <img width={60} src={Logo} ></img> </div>
         <div className='botonesNavBar'>
             <NavLink to="/" className='botonNavBar'>Personajes</NavLink>
             <NavLink to="/Localidades" className='botonNavBar'>Localidades</NavLink>

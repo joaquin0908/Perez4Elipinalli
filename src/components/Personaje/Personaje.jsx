@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { GetPersonajeId } from '../../api';
-
+import  "./Personaje.css"
 // Componente para mostrar detalles de un personaje
 export const Personaje = () => {
   const { id } = useParams(); // Obtener el parámetro de ruta ":id"

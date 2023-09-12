@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { GetPersonajes } from '../../api';
-import Tarjetas from '../Tarjetas/Tarjetas';
+import React, { useEffect, useState } from "react";
+import { GetPersonajes } from "../../api";
+import Tarjetas from "../Tarjetas/Tarjetas";
+import "./PersonajesContainer.css";
 
 // Componente para mostrar una lista de personajes
 export default function PersonajesContainer() {
@@ -15,7 +16,7 @@ export default function PersonajesContainer() {
         // Actualiza el estado con los datos de los personajes obtenidos
         setPersonajes(data);
       } catch (error) {
-        console.error('Error al obtener los personajes', error);
+        console.error("Error al obtener los personajes", error);
       }
     };
 
@@ -24,7 +25,7 @@ export default function PersonajesContainer() {
   }, []);
 
   return (
-    <div>
+    <div className="Contenedor">
       {/* Mapear la lista de personajes y renderizar una tarjeta por cada uno */}
       {Personajes.map((Personaje) => (
         <Tarjetas key={Personaje.id} Data={Personaje} />
