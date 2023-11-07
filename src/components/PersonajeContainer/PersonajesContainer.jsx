@@ -24,8 +24,10 @@ export default function PersonajesContainer() {
     fetchData();
   }, []);
 
+
   return (
-    <div className="Contenedor">
+<div className="Contenedor">
+  <h1>ej</h1>
       {/* Mapear la lista de personajes y renderizar una tarjeta por cada uno */}
       {Personajes.map((Personaje) => (
         <Tarjetas key={Personaje.id} Data={Personaje} />
